@@ -42,8 +42,8 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         }?>   
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
-                        <a href="../pages/login.php"><button style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></button></a>
-                        <a href="../pages/register.php"><button class="btn btn-primary my-2 my-sm-0" type="submit">Register <i class="fa fa-user-plus" aria-hidden="true"></i></button></a>
+                        <a href="login.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></button></a>
+                        <a href="register.php" class="btn btn-primary my-2 my-sm-0" type="submit">Register <i class="fa fa-user-plus" aria-hidden="true"></i></button></a>
                     </form>
                 </div>
             </nav>
