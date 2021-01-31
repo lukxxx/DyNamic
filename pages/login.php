@@ -1,7 +1,5 @@
 <?php 
-session_start();
-
-
+include "../components/head.php"; 
 // Define database connection parameters
 $db_host = "127.0.0.1";
 $db_name = "users";
@@ -70,7 +68,7 @@ if(isset($_POST['bimbambum'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include "../components/head.php"; ?>
+
 <body>
     <header>
         <div class="container">

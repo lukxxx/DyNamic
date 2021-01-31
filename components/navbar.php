@@ -46,9 +46,37 @@ $new_url = implode("/",$arr_url);
                             echo '<li class="nav-item">';
                             echo '<a class="nav-link" href="pages/zadania.php">Zadania</a>';
                             echo '</li>';
-                        }?>   
+                        }
+                        if($_SESSION['loggedin'] == "yes"){
+                            if (strpos($url,'vysledky') !== false) {
+                                echo '<li class="nav-item active">';
+                                echo '<a class="nav-link" href="pages/vysledky.php">Výsledky</a>';
+                                echo '</li>';
+                            } else {
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="pages/vysledky.php">Výsledky</a>';
+                                echo '</li>';
+                            }
+                            if (strpos($url,'vysledky') !== false) {
+                                echo '<li class="nav-item active">';
+                                echo '<a class="nav-link" href="pages/download.php">Na stiahnutie</a>';
+                                echo '</li>';
+                            } else {
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="pages/download.php">Na stiahnutie</a>';
+                                echo '</li>';
+                            }
+                        } else {
+
+                        }
+                        ?>   
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
+                        <?php 
+                        if($_SESSION['loggedin'] == "yes"){
+                            echo '<a href="pages/.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></a>';
+                        }
+                        ?>
                         <a href="pages/login.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></a>
                         <a href="pages/register.php" class="btn btn-primary my-2 my-sm-0" type="submit">Register <i class="fa fa-user-plus" aria-hidden="true"></i></a>
                     </form>

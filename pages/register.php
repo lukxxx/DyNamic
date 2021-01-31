@@ -1,7 +1,4 @@
 <?php 
-session_start();
-
-
 // Define database connection parameters
 $db_host = "127.0.0.1";
 $db_name = "users";
@@ -62,10 +59,12 @@ if(isset($_POST['bimbambum'])){
         $error_pass2 = "";
         $pass2 = $pass1;
     }
+    $_SESSION['usr-name'] = $username;
     if($error == "" && $error_pass == "" && $error_pass2 == ""){
         $sql = "INSERT INTO people (meno, hesielko) VALUES (?,?)";
         $stmt= $pdo->prepare($sql);
         if($stmt->execute([$username, $pass1_hash])){
+            
             header("location:thx.php");
         } else {
             $error_insert = "ERROR WITH DATABASE";
