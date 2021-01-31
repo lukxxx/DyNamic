@@ -5,6 +5,6 @@
                 <hr class="my-4">
                 <p>ENJOY</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Link do pekla</a>
+                    <a class="btn btn-primary btn-lg" href="http://fromhell.net/" role="button">Link do pekla</a>
                 </p>
             </div>
