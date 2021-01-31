@@ -1,75 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="assets/scss/style.scss">
-<title>Lukáš</title>
-</head>
+<?php include "components/head.php"; ?>
 <body>
     <header>
         <div class="container">
-        <div class="navigation nav navbar">
-            <div class="desktop-nav">
-                <div class="nav-body-main">
-                    <div class="nav-logo">
-                        <a href="#"><img src="assets/images/logo.png"></a>
-                    </div>
-                    <div class="nav-links">
-                        <div class="page-links">
-                            <span>Home</span>
-                            <span>About</span>
-                            <span>Gallery</span>
-                            <span>Contact</span>
-                        </div>
-                        <div class="lang">
-                            <div class="dropdown">
-                                <a class="dropbtn">SK <i class="fa fa-caret-down"></i></a>
-                                <div class="dropdown-content">
-                                <a href="#">EN</a>
-                                <a href="#">DE</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-button">
-                        <button type="button" class="r-btn">Register</button>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-nav">
-                <div class="main-body-m-nav">
-                    <div class="logo-header">
-                        <img src="assets/images/logo.png" alt="logo">
-                    </div>
-                    <div class="m-nav-links">
-                        <div class="dropdown">
-                            <a class="dropbtn">SK <i class="fa fa-caret-down"></i></a>
-                            <div class="dropdown-content">
-                                <a href="#">EN</a>
-                                <a href="#">DE</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h-menu">
-                        <img src="assets/images/hmenu.png">
-                    </div>
-                </div>
-            </div>
+            <?php include "components/navbar.php" ?>
         </div>
     </header>
+    <br>
     <main>
-    
+        <div class="container">
+            <div style="border-radius: 10px; -webkit-box-shadow: 11px 11px 14px -5px rgba(81,81,81,0.67); 
+            box-shadow: 11px 11px 14px -5px rgba(81,81,81,0.67);" class="jumbotron">
+                <h1 class="display-4">Hello, world!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+            </div>
+        </div>
+        
     </main>
-    <footer>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-    </footer>
+    <?php include "components/footer.php"?>
 
 </body>
 </html>
