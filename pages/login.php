@@ -61,6 +61,7 @@ if(isset($_POST['bimbambum'])){
         </div>";
     } 
     if($error == "" && $error_pass == ""){
+        $_SESSION['loggedin'] = "yes";
         header("location:../index.php");
     }
 }
