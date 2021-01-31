@@ -12,7 +12,55 @@
 </head>
 <body>
     <header>
-
+        <div class="container">
+        <div class="navigation nav navbar">
+            <div class="desktop-nav">
+                <div class="nav-body-main">
+                    <div class="nav-logo">
+                        <a href="#"><img src="assets/images/logo.png"></a>
+                    </div>
+                    <div class="nav-links">
+                        <div class="page-links">
+                            <span>Home</span>
+                            <span>About</span>
+                            <span>Gallery</span>
+                            <span>Contact</span>
+                        </div>
+                        <div class="lang">
+                            <div class="dropdown">
+                                <a class="dropbtn">SK <i class="fa fa-caret-down"></i></a>
+                                <div class="dropdown-content">
+                                <a href="#">EN</a>
+                                <a href="#">DE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-button">
+                        <button type="button" class="r-btn">Register</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-nav">
+                <div class="main-body-m-nav">
+                    <div class="logo-header">
+                        <img src="assets/images/logo.png" alt="logo">
+                    </div>
+                    <div class="m-nav-links">
+                        <div class="dropdown">
+                            <a class="dropbtn">SK <i class="fa fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="#">EN</a>
+                                <a href="#">DE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-menu">
+                        <img src="assets/images/hmenu.png">
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
     
