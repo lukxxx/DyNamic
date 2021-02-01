@@ -1,4 +1,5 @@
 <?php 
+
 // Define database connection parameters
 $db_host = "127.0.0.1";
 $db_name = "users";
@@ -31,7 +32,6 @@ if(isset($_POST['bimbambum'])){
     $username = $_POST['name'];
     $sth = $pdo->prepare("SELECT * FROM people WHERE meno = ?");
     $sth->execute(array($username));
-
     $row = $sth->fetch(PDO::FETCH_ASSOC);
     $menicko = $row['meno'];
     
@@ -39,13 +39,18 @@ if(isset($_POST['bimbambum'])){
         $error = "<div class='alert alert-danger' role='alert'>
         Nezadal si meno!
         </div>";
-    } else if($_POST['name'] == $menicko){
+    } else if(strlen($_POST['name']) >= 5 && strlen($_POST['name']) <= 20 && $_POST['name'] == $menicko){
         $error = "<div class='alert alert-warning' role='alert'>
         Toto používateľské meno už existuje!
         </div>";
-    } else {
+    } else if(strlen($_POST['name']) > 5 && strlen($_POST['name']) < 20 && $_POST['name'] !== $menicko){
         $error = "";
         $username = $_POST['name'];
+        
+    } else {
+        $error = "<div class='alert alert-warning' role='alert'>
+        Meno musí obsahovať viac ako 5 znakov a menej ako 20 znakov. Zmeňte meno!
+        </div>";
     }
     if(empty($_POST['password'])){
         $error_pass = "<div class='alert alert-danger' role='alert'>Nezadal si heslo!</div>";
@@ -67,8 +72,8 @@ if(isset($_POST['bimbambum'])){
         $sql = "INSERT INTO people (meno, hesielko) VALUES (?,?)";
         $stmt= $pdo->prepare($sql);
         if($stmt->execute([$username, $pass1_hash])){
-            $_SESSION['r-name'] = $username;
-            header("location:thx.php");
+            echo $menicko;
+            //header("location:thx.php");
         } else {
             $error_insert = "ERROR WITH DATABASE";
         }
@@ -80,8 +85,8 @@ if(isset($_POST['bimbambum'])){
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<?php include "../components/head.php"; ?>
+<?php include "../components/head.php"; 
+?>
 <body>
     <header>
         <div class="container">
@@ -99,8 +104,8 @@ if(isset($_POST['bimbambum'])){
                 <h2>Registrujte sa!</h2>
                 <div style="padding: 5% 25% 0% 25%">
                     <form method="post" action="">
-                        <label>Meno</label><input type="text" name="name" class="form-control">
-                        <label>Heslo</label><input type="password" name="password" class="form-control">
+                        <label>Meno</label><input type="text" name="name"  class="form-control">
+                        <label>Heslo</label><input type="password" name="password" placeholder="Minimálne 8 znakov..." class="form-control">
                         <label>Opakovať heslo</label><input type="password" name="pass2" class="form-control"><br>
                         <input type="submit" value="Registrovať" name="bimbambum" class="btn btn-success">
                     </form>
