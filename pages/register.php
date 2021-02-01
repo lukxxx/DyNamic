@@ -33,13 +33,18 @@ if(isset($_POST['bimbambum'])){
     $sth = $pdo->prepare("SELECT * FROM people WHERE meno = ?");
     $sth->execute(array($username));
     $row = $sth->fetch(PDO::FETCH_ASSOC);
-    $menicko = $row['meno'];
+    if(isset($row['meno'])){
+        $menicko = $row['meno'];  
+    } else {
+        $menicko = "";
+    }
+    
     
     if(empty($_POST['name'])){
         $error = "<div class='alert alert-danger' role='alert'>
         Nezadal si meno!
         </div>";
-    } else if(strlen($_POST['name']) >= 5 && strlen($_POST['name']) <= 20 && $_POST['name'] == $menicko){
+    } else if(strlen($_POST['name']) > 5 && strlen($_POST['name']) < 20 && $_POST['name'] == $menicko){
         $error = "<div class='alert alert-warning' role='alert'>
         Toto používateľské meno už existuje!
         </div>";
@@ -72,8 +77,7 @@ if(isset($_POST['bimbambum'])){
         $sql = "INSERT INTO people (meno, hesielko) VALUES (?,?)";
         $stmt= $pdo->prepare($sql);
         if($stmt->execute([$username, $pass1_hash])){
-            echo $menicko;
-            //header("location:thx.php");
+            header("location:thx.php");
         } else {
             $error_insert = "ERROR WITH DATABASE";
         }
