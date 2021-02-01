@@ -19,7 +19,7 @@ $new_url = implode("/",$arr_url);
                         
                         <?php 
                         if (strpos($url,'/') !== false) {
-                            echo '<li class="nav-item active">';
+                            echo '<li class="nav-item active ">';
                             echo '<a class="nav-link" href="#">Home</a>';
                             echo '</li>';
                         } else {
@@ -47,7 +47,7 @@ $new_url = implode("/",$arr_url);
                             echo '<a class="nav-link" href="pages/zadania.php">Zadania</a>';
                             echo '</li>';
                         }
-                        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "yes"){
+                        if(isset($_SESSION['loggedin'])){
                             if (strpos($url,'vysledky') !== false) {
                                 echo '<li class="nav-item active">';
                                 echo '<a class="nav-link" href="pages/vysledky.php">Výsledky</a>';
@@ -57,7 +57,7 @@ $new_url = implode("/",$arr_url);
                                 echo '<a class="nav-link" href="pages/vysledky.php">Výsledky</a>';
                                 echo '</li>';
                             }
-                            if (strpos($url,'vysledky') !== false) {
+                            if (strpos($url,'download') !== false) {
                                 echo '<li class="nav-item active">';
                                 echo '<a class="nav-link" href="pages/download.php">Na stiahnutie</a>';
                                 echo '</li>';
@@ -73,8 +73,10 @@ $new_url = implode("/",$arr_url);
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <?php 
-                        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "yes"){
-                            
+                        if(isset($_SESSION['loggedin'])){
+                            echo "<span style='color: white'> ";
+                            echo $_SESSION['loggedin'];
+                            echo " <i class='fas fa-user-check'></i></span>";
                             echo '<a href="pages/logout.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Log out <i class="fas fa-sign-in-alt"></i></a>';
                         } else {
                             echo '<a href="pages/login.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></a>';
