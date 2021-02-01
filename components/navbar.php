@@ -74,9 +74,9 @@ $new_url = implode("/",$arr_url);
                     <form class="form-inline my-2 my-lg-0">
                         <?php 
                         if(isset($_SESSION['loggedin'])){
-                            echo "<span style='color: white'> ";
+                            echo "<a href='pages/profile.php'><span style='color: white'> Moja zóna: ";
                             echo $_SESSION['loggedin'];
-                            echo " <i class='fas fa-user-check'></i></span>";
+                            echo " <i class='fas fa-user-check'></i></span></a>";
                             echo '<a href="pages/logout.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Log out <i class="fas fa-sign-in-alt"></i></a>';
                         } else {
                             echo '<a href="pages/login.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></a>';
