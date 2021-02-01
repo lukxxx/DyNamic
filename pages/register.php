@@ -21,17 +21,20 @@ $error = "";
 $error_pass = "";
 $error_pass2 = "";
 
-$sth = $pdo->prepare("SELECT * FROM people");
-$sth->execute();
 
-$row = $sth->fetch(PDO::FETCH_ASSOC);
-$menicko = $row['meno'];
 
 $options = [
     'cost' => 12,
 ];
 
 if(isset($_POST['bimbambum'])){
+    $username = $_POST['name'];
+    $sth = $pdo->prepare("SELECT * FROM people WHERE meno = ?");
+    $sth->execute(array($username));
+
+    $row = $sth->fetch(PDO::FETCH_ASSOC);
+    $menicko = $row['meno'];
+    
     if(empty($_POST['name'])){
         $error = "<div class='alert alert-danger' role='alert'>
         Nezadal si meno!
@@ -59,12 +62,12 @@ if(isset($_POST['bimbambum'])){
         $error_pass2 = "";
         $pass2 = $pass1;
     }
-    $_SESSION['usr-name'] = $username;
+    
     if($error == "" && $error_pass == "" && $error_pass2 == ""){
         $sql = "INSERT INTO people (meno, hesielko) VALUES (?,?)";
         $stmt= $pdo->prepare($sql);
         if($stmt->execute([$username, $pass1_hash])){
-            
+            $_SESSION['r-name'] = $username;
             header("location:thx.php");
         } else {
             $error_insert = "ERROR WITH DATABASE";

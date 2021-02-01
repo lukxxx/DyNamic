@@ -7,7 +7,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="../index.html"><i class="fas fa-school fa-2x"></i></a>
+                    <a class="navbar-brand" href="../index.php"><i class="fas fa-school fa-2x"></i></a>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         
                         <?php 
@@ -39,11 +39,42 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             echo '<li class="nav-item">';
                             echo '<a class="nav-link" href="zadania.php">Zadania</a>';
                             echo '</li>';
-                        }?>   
+                        }
+                        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "yes"){
+                            if (strpos($url,'vysledky') !== false) {
+                                echo '<li class="nav-item active">';
+                                echo '<a class="nav-link" href="vysledky.php">Výsledky</a>';
+                                echo '</li>';
+                            } else {
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="vysledky.php">Výsledky</a>';
+                                echo '</li>';
+                            }
+                            if (strpos($url,'download') !== false) {
+                                echo '<li class="nav-item active">';
+                                echo '<a class="nav-link" href="download.php">Na stiahnutie</a>';
+                                echo '</li>';
+                            } else {
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="download.php">Na stiahnutie</a>';
+                                echo '</li>';
+                            }
+                        } else {
+                            echo "";
+                        }
+                        ?>   
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
-                        <a href="login.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></button></a>
-                        <a href="register.php" class="btn btn-primary my-2 my-sm-0" type="submit">Register <i class="fa fa-user-plus" aria-hidden="true"></i></button></a>
+                        <?php 
+                        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "yes"){
+                            
+                            echo '<a href="logout.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Log out <i class="fas fa-sign-in-alt"></i></a>';
+                        } else {
+                            echo '<a href="login.php" style="margin: 20px;" class="btn btn-success my-2 my-sm-0" type="submit">Login <i class="fas fa-sign-in-alt"></i></a>';
+                            echo '<a href="register.php" class="btn btn-primary my-2 my-sm-0" type="submit">Register <i class="fa fa-user-plus" aria-hidden="true"></i></a>';
+                        }
+                        ?>
                     </form>
+                    </ul>
                 </div>
             </nav>
